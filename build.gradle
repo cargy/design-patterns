@@ -1,0 +1,26 @@
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+subprojects {
+    subproject ->
+        {
+            subproject.apply plugin: 'java'
+            subproject.apply plugin: 'checkstyle'
+        }
+
+        group = 'com.agileactors'
+        version = '1.0.0'
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+    sourceCompatibility = '17'
+    targetCompatibility = '17'
+
+    checkstyle {
+        configFile = rootProject.file('config/checkstyle.xml')
+    }
+}

@@ -1,0 +1,20 @@
+import static groovy.io.FileType.*
+
+rootProject.name = 'design-patterns'
+
+def getProjectName(String buildGradleFileName) {
+    return (buildGradleFileName - (rootDir.toString() + "/"))
+            .replaceAll("/build.gradle", "")
+            .replaceAll("/", ":")
+}
+
+rootDir.traverse(
+        type: FILES,
+        nameFilter: ~/.*build.gradle/
+) { buildGradleFileName ->
+    def projectName = getProjectName(buildGradleFileName.path)
+
+    if (projectName != "build.gradle") {
+        include projectName
+    }
+}
