@@ -2,9 +2,9 @@ package com.agileactors.strategy;
 
 public class Dwarf extends Character {
 
-    @Override
-    public void fight() {
-        System.out.println("Swing Axe!");
+    public Dwarf() {
+        this.attackMethod = new AxeAttack();
+        this.climbBehaviour = new ClimbNot();
     }
 
     @Override
