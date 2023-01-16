@@ -30,6 +30,25 @@ An action adventure game with *Kings*, *Queens* and *Knights*! (who knows what e
 
 All `Character` can `fight()` and `walk()`. We will override `display()` on each implementation in order to draw each character.
 
+```mermaid
+classDiagram
+    Character <|-- King
+    Character <|-- Queen
+    Character <|-- Knight
+    Character: +fight()
+    Character: +walk()
+    Character: +display()
+    class King{
+        +display()
+    }
+    class Queen{
+        +display()
+    }
+    class Knight{
+        +display()
+    }
+```
+
 ### Characters shall climb
 
 Try with inheritance add `climb()` method in Character
@@ -59,8 +78,40 @@ Pullout `fight()` and `climb()` from `Character` as they vary between characters
 
 ### Implement AttackMethod and ClimbBehaviour
 
-`AttackMethod#attack()` 
-`ClimbBehaviour#climbd()`
+`AttackMethod#attack()`
+
+```mermaid
+classDiagram
+    AttackMethod <|.. SwordAttack
+    AttackMethod <|.. AxeAttack
+    AttackMethod <|.. BareHandAttack
+    AttackMethod: +attack()
+    class SwordAttack{
+        +attack()
+    }
+    class AxeAttack{
+        +attack()
+    }
+    class BareHandAttack{
+        +attack()
+    }
+```
+
+`ClimbBehaviour#climb()`
+
+```mermaid
+classDiagram
+    ClimbBehaviour <|.. HandClimb
+    ClimbBehaviour <|.. ClimbNot
+    ClimbBehaviour: +climb()
+    class HandClimb{
+        +climb()
+    }
+    class ClimbNot{
+        +climb()
+    }
+```
+
 
 ### Integrate attack method and climb behaviour in Character
 
