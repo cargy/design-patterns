@@ -37,7 +37,7 @@ classDiagram
     Character <|-- Knight
     Character: +fight()
     Character: +walk()
-    Character: +display()
+    Character: +display()*
     class King{
         +display()
     }
@@ -68,7 +68,7 @@ Override `climb()` in *Dwarfs* so they will not climb?
 
 We know that `fight()` and `climb()` vary between **Characters**:
 
-| Character         | fight()        | climb()   |
+| Character         | `fight()`      | `climb()` |
 |-------------------|----------------|-----------|
 | King/Knight/Queen | SwordAttack    | HandClimb |
 | Dwarf             | AxeAttack      | ClimbNot  |
@@ -85,6 +85,8 @@ classDiagram
     AttackMethod <|.. SwordAttack
     AttackMethod <|.. AxeAttack
     AttackMethod <|.. BareHandAttack
+    class AttackMethod
+    <<interface>> AttackMethod
     AttackMethod: +attack()
     class SwordAttack{
         +attack()
@@ -103,6 +105,8 @@ classDiagram
 classDiagram
     ClimbBehaviour <|.. HandClimb
     ClimbBehaviour <|.. ClimbNot
+    class ClimbBehaviour
+    <<interface>> ClimbBehaviour
     ClimbBehaviour: +climb()
     class HandClimb{
         +climb()
@@ -115,10 +119,31 @@ classDiagram
 
 ### Integrate attack method and climb behaviour in Character
 
-1. Add `AttackMethod` and `ClimbBehaviour` in Character
-2. Implement `performAttack()` and `performClimb()`
-3. Integrate attack methods and climb behaviours to Character implementations
+1. Add `AttackMethod` and `ClimbBehaviour` instance variables in Character
+2. Change `fight()` and `climb()` so that delegates to the corresponding instances above
+3. Integrate attack methods and climb behaviours to all the `Character` implementations
 
 
-
-
+```mermaid
+classDiagram
+    class Character {
+    <<Abstract>>
+        #attackMethod
+        #climbBehaviour
+        +fight()
+        +climb()
+        +walk()
+        +display()* 
+        +setClimbBehaviour()
+    }
+    Character <|-- King
+    King: display()
+    Character <|-- Queen
+    Queen: display()
+    Character <|-- Knight
+    Knight: display()
+    Character <|-- Dwarf
+    Dwarf: display()
+    Character <|-- Troll
+    Troll: display()
+```
