@@ -1,4 +1,4 @@
-package com.agileactors.factory.v2.service.geography;
+package com.agileactors.factory.common.service.geography;
 
 import com.agileactors.factory.common.enums.MeansOfTransportationEnum;
 

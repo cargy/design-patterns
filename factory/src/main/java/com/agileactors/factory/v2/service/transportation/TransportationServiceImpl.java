@@ -2,17 +2,17 @@ package com.agileactors.factory.v2.service.transportation;
 
 import com.agileactors.factory.common.dto.TransportationDto;
 import com.agileactors.factory.common.enums.MeansOfTransportationEnum;
+import com.agileactors.factory.common.service.geography.GeographyService;
+import com.agileactors.factory.common.service.tax.TaxService;
 import com.agileactors.factory.v2.meansoftransportation.Airplane;
 import com.agileactors.factory.v2.meansoftransportation.Boat;
 import com.agileactors.factory.v2.meansoftransportation.Truck;
-import com.agileactors.factory.v2.service.geography.GeographyService;
-import com.agileactors.factory.v2.service.tax.TaxService;
 import java.math.BigDecimal;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service("TransportationServiceImplV2")
 @RequiredArgsConstructor
 @Slf4j
 public class TransportationServiceImpl implements TransportationService {

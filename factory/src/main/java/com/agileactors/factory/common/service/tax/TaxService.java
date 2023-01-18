@@ -1,4 +1,4 @@
-package com.agileactors.factory.v2.service.tax;
+package com.agileactors.factory.common.service.tax;
 
 import java.math.BigDecimal;
 

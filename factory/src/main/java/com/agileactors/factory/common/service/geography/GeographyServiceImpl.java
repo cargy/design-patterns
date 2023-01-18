@@ -1,14 +1,16 @@
-package com.agileactors.factory.v3.service.geography;
+package com.agileactors.factory.common.service.geography;
 
 import com.agileactors.factory.common.enums.MeansOfTransportationEnum;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
+@AllArgsConstructor
 public class GeographyServiceImpl implements GeographyService {
 
   @Override
-  public MeansOfTransportationEnum getMeansOfTransport(String pointOfDeparture,
-                                                       String destination) {
+  public MeansOfTransportationEnum getMeansOfTransportation(String pointOfDeparture,
+                                                            String destination) {
     if (pointOfDeparture.compareTo(destination) > 0) {
       return MeansOfTransportationEnum.BOAT;
     } else if (pointOfDeparture.length() > 10) {

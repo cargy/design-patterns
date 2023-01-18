@@ -13,17 +13,19 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 @RequiredArgsConstructor
-@RestController
+@RestController("TransportationControllerV2")
 @RequestMapping("/api/v2/transportation")
 public class TransportationController {
 
   private final TransportationService transportationService;
 
+  private final TransportationMapper transportationMapper;
+
   @PostMapping(value = "/")
   @ResponseStatus(HttpStatus.OK)
   public String transportCargo(@RequestBody TransportationInput transportationInput) {
 
-    TransportationDto transportationDto = TransportationMapper.INSTANCE.toDto(transportationInput);
+    TransportationDto transportationDto = transportationMapper.toDto(transportationInput);
 
     return transportationService.transportCargo(transportationDto);
   }

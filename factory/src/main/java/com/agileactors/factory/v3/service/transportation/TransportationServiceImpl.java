@@ -2,16 +2,16 @@ package com.agileactors.factory.v3.service.transportation;
 
 import com.agileactors.factory.common.dto.TransportationDto;
 import com.agileactors.factory.common.enums.MeansOfTransportationEnum;
+import com.agileactors.factory.common.service.geography.GeographyService;
+import com.agileactors.factory.common.service.tax.TaxService;
 import com.agileactors.factory.v3.factory.MeansOfTransportFactory;
 import com.agileactors.factory.v3.meansoftransport.MeansOfTransport;
-import com.agileactors.factory.v3.service.geography.GeographyService;
-import com.agileactors.factory.v3.service.tax.TaxService;
 import java.math.BigDecimal;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service("TransportationServiceImplV3")
 @RequiredArgsConstructor
 @Slf4j
 public class TransportationServiceImpl implements TransportationService {
@@ -23,7 +23,7 @@ public class TransportationServiceImpl implements TransportationService {
   public String transportCargo(TransportationDto transportationDto) {
 
     MeansOfTransportationEnum meansOfTransportEnum =
-        geographyService.getMeansOfTransport(transportationDto.getPointOfDeparture(),
+        geographyService.getMeansOfTransportation(transportationDto.getPointOfDeparture(),
             transportationDto.getDestination());
 
     MeansOfTransport meansOfTransport =
