@@ -1,10 +1,10 @@
 package com.agileactors.factory.v3.factory;
 
 import com.agileactors.factory.common.enums.MeansOfTransportationEnum;
-import com.agileactors.factory.v3.meansoftransport.Airplane;
-import com.agileactors.factory.v3.meansoftransport.Boat;
-import com.agileactors.factory.v3.meansoftransport.MeansOfTransport;
-import com.agileactors.factory.v3.meansoftransport.Truck;
+import com.agileactors.factory.v3.meansoftransportation.Airplane;
+import com.agileactors.factory.v3.meansoftransportation.Boat;
+import com.agileactors.factory.v3.meansoftransportation.MeansOfTransport;
+import com.agileactors.factory.v3.meansoftransportation.Truck;
 
 public class MeansOfTransportFactory {
 

@@ -2,7 +2,7 @@ package com.agileactors.factory.v1.service.transportation;
 
 import com.agileactors.factory.common.dto.TransportationDto;
 import com.agileactors.factory.common.service.tax.TaxService;
-import com.agileactors.factory.v1.meansoftransport.Truck;
+import com.agileactors.factory.v1.meansoftransportation.Truck;
 import java.math.BigDecimal;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

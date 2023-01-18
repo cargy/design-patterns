@@ -1,4 +1,4 @@
-package com.agileactors.factory.v3.meansoftransport;
+package com.agileactors.factory.v3.meansoftransportation;
 
 public interface MeansOfTransport {
 
