@@ -24,10 +24,10 @@ public class TransportationServiceImpl implements TransportationService {
   public String transportCargo(TransportationDto transportationDto) {
 
     MeansOfTransportationEnum meansOfTransportationEnum =
-        geographyService.getMeansOfTransportation(transportationDto.getPointOfDeparture(),
-            transportationDto.getDestination());
+        geographyService.getMeansOfTransportation(transportationDto.pointOfDeparture(),
+            transportationDto.destination());
     log.info("Transporting cargo {} of quantity {} and net cost {} via {}...",
-        transportationDto.getCargo(), transportationDto.getQuantity(), transportationDto.getCost(),
+        transportationDto.cargo(), transportationDto.quantity(), transportationDto.cost(),
         meansOfTransportationEnum);
 
     Airplane airplane = new Airplane();
@@ -35,26 +35,26 @@ public class TransportationServiceImpl implements TransportationService {
     Truck truck = new Truck();
 
     if (MeansOfTransportationEnum.AIRPLANE.equals(meansOfTransportationEnum)) {
-      airplane.checkCargo(transportationDto.getCargo());
+      airplane.checkCargo(transportationDto.cargo());
     } else if (MeansOfTransportationEnum.BOAT.equals(meansOfTransportationEnum)) {
-      boat.checkCargo(transportationDto.getCargo());
+      boat.checkCargo(transportationDto.cargo());
     } else {
-      truck.checkCargo(transportationDto.getCargo());
+      truck.checkCargo(transportationDto.cargo());
     }
 
     BigDecimal finalPrice =
-        taxService.applyTaxesOnCargo(transportationDto.getCargo(), transportationDto.getCost());
+        taxService.applyTaxesOnCargo(transportationDto.cargo(), transportationDto.cost());
     log.info("Final price after taxing is {} ", finalPrice);
 
     if (MeansOfTransportationEnum.AIRPLANE.equals(meansOfTransportationEnum)) {
-      airplane.loadCargo(transportationDto.getQuantity());
-      airplane.sendToDestination(transportationDto.getDestination());
+      airplane.loadCargo(transportationDto.quantity());
+      airplane.sendToDestination(transportationDto.destination());
     } else if (MeansOfTransportationEnum.BOAT.equals(meansOfTransportationEnum)) {
-      boat.loadCargo(transportationDto.getQuantity());
-      boat.sendToDestination(transportationDto.getDestination());
+      boat.loadCargo(transportationDto.quantity());
+      boat.sendToDestination(transportationDto.destination());
     } else {
-      truck.loadCargo(transportationDto.getQuantity());
-      truck.sendToDestination(transportationDto.getDestination());
+      truck.loadCargo(transportationDto.quantity());
+      truck.sendToDestination(transportationDto.destination());
     }
 
     return "Cargo was transported successfully via " + meansOfTransportationEnum;

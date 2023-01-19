@@ -1,11 +1,9 @@
 package com.agileactors.factory.common.service.geography;
 
 import com.agileactors.factory.common.enums.MeansOfTransportationEnum;
-import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
-@AllArgsConstructor
 public class GeographyServiceImpl implements GeographyService {
 
   @Override

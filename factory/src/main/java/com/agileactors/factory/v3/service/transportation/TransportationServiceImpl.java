@@ -23,24 +23,24 @@ public class TransportationServiceImpl implements TransportationService {
   public String transportCargo(TransportationDto transportationDto) {
 
     MeansOfTransportationEnum meansOfTransportEnum =
-        geographyService.getMeansOfTransportation(transportationDto.getPointOfDeparture(),
-            transportationDto.getDestination());
+        geographyService.getMeansOfTransportation(transportationDto.pointOfDeparture(),
+            transportationDto.destination());
 
     MeansOfTransport meansOfTransport =
         MeansOfTransportFactory.getMeansOfTransport(meansOfTransportEnum);
 
     log.info("Transporting cargo {} of quantity {} and net cost {} via {}...",
-        transportationDto.getCargo(), transportationDto.getQuantity(), transportationDto.getCost(),
+        transportationDto.cargo(), transportationDto.quantity(), transportationDto.cost(),
         meansOfTransport);
 
-    meansOfTransport.checkCargo(transportationDto.getCargo());
+    meansOfTransport.checkCargo(transportationDto.cargo());
 
     BigDecimal finalPrice =
-        taxService.applyTaxesOnCargo(transportationDto.getCargo(), transportationDto.getCost());
+        taxService.applyTaxesOnCargo(transportationDto.cargo(), transportationDto.cost());
     log.info("Final price after taxing is {} ", finalPrice);
 
-    meansOfTransport.loadCargo(transportationDto.getQuantity());
-    meansOfTransport.sendToDestination(transportationDto.getDestination());
+    meansOfTransport.loadCargo(transportationDto.quantity());
+    meansOfTransport.sendToDestination(transportationDto.destination());
 
     return "Cargo was transported successfully via " + meansOfTransportEnum;
   }

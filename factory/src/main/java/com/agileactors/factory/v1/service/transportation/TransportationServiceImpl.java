@@ -18,19 +18,19 @@ public class TransportationServiceImpl implements TransportationService {
   @Override
   public String transportCargo(TransportationDto transportationDto) {
     log.info("Transporting cargo {} of quantity {} and net cost {} via truck...",
-        transportationDto.getCargo(), transportationDto.getQuantity(), transportationDto.getCost());
+        transportationDto.cargo(), transportationDto.quantity(), transportationDto.cost());
 
     Truck truck = new Truck();
 
-    truck.checkCargo(transportationDto.getCargo());
+    truck.checkCargo(transportationDto.cargo());
 
     BigDecimal finalPrice =
-        taxService.applyTaxesOnCargo(transportationDto.getCargo(), transportationDto.getCost());
+        taxService.applyTaxesOnCargo(transportationDto.cargo(), transportationDto.cost());
     log.info("Final price after taxing is {} ", finalPrice);
 
-    truck.loadCargo(transportationDto.getQuantity());
+    truck.loadCargo(transportationDto.quantity());
 
-    truck.sendToDestination(transportationDto.getDestination());
+    truck.sendToDestination(transportationDto.destination());
 
     return "Cargo was transported successfully via truck";
   }

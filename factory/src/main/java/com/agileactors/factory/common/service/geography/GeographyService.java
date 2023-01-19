@@ -4,6 +4,6 @@ import com.agileactors.factory.common.enums.MeansOfTransportationEnum;
 
 public interface GeographyService {
 
-  public MeansOfTransportationEnum getMeansOfTransportation(String pointOfDeparture,
+  MeansOfTransportationEnum getMeansOfTransportation(String pointOfDeparture,
                                                             String destination);
 }
