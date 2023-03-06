@@ -7,3 +7,4 @@
 
 ## Behavioral
 - [Strategy Pattern](strategy/readme.md)
+- [Template Method Pattern](template-method/readme.md)
