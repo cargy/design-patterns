@@ -1,5 +1,9 @@
 package com.agileactors.strategy;
 
+import com.agileactors.strategy.behaviour.HandClimb;
+import com.agileactors.strategy.character.*;
+import com.agileactors.strategy.character.Character;
+
 import java.util.Arrays;
 import java.util.List;
 

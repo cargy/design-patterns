@@ -1,4 +1,7 @@
-package com.agileactors.strategy;
+package com.agileactors.strategy.character;
+
+import com.agileactors.strategy.behaviour.HandClimb;
+import com.agileactors.strategy.attack.SwordAttack;
 
 public class King extends Character {
 

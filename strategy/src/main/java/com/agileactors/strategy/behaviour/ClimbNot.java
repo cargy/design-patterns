@@ -1,4 +1,4 @@
-package com.agileactors.strategy;
+package com.agileactors.strategy.behaviour;
 
 public class ClimbNot implements ClimbBehaviour {
   @Override

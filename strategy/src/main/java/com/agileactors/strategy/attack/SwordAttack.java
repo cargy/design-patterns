@@ -1,4 +1,4 @@
-package com.agileactors.strategy;
+package com.agileactors.strategy.attack;
 
 public class SwordAttack implements AttackMethod {
   @Override

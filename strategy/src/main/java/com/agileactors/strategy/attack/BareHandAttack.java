@@ -1,4 +1,4 @@
-package com.agileactors.strategy;
+package com.agileactors.strategy.attack;
 
 public class BareHandAttack implements AttackMethod {
   @Override

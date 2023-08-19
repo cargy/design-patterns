@@ -1,4 +1,7 @@
-package com.agileactors.strategy;
+package com.agileactors.strategy.character;
+
+import com.agileactors.strategy.attack.AttackMethod;
+import com.agileactors.strategy.behaviour.ClimbBehaviour;
 
 public abstract class Character {
 
